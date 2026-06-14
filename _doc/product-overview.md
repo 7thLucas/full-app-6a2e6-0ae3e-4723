@@ -49,6 +49,7 @@ State reducer (Dart / TypeScript) handling `BALL_BOWLED` and `WICKET` action typ
 - **Architecture**: Event Sourcing / Command Pattern for the match engine
 
 ## Strategic Principles
+- **Full experience from day one**: the builder wants every feature — custom teams, ball-by-ball engine, dismissals, undo/redo, live stats — working correctly at launch; no placeholder MVP cuts
 - **Event-driven truth**: every stat derives from ball events — no denormalization, no drift between display and reality
 - **Local-first**: all data lives on-device; no cloud dependency for core scoring
 - **Undo is first-class**: the command pattern is the core architecture, not a feature bolted on
