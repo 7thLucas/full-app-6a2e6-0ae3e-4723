@@ -1,19 +1,66 @@
-Act as a Principal Software Architect and Senior Full-Stack Engineer. I want to build a production-grade, highly scalable Advanced Cricket Scoreboard App that features full Custom Team & Player Creation alongside professional match-tracking logic. Provide a comprehensive system design, database schema, state management architecture, and core code for the following requirements:
+# Cricket Scorer Pro — Product Overview
+*(Working name — pending user confirmation)*
 
-1. Custom Teams & Players Creation Module (CRUD):
-- Custom Teams: Users must be able to create, save, and edit custom teams with personalized Team Names, Short Names (e.g., "Gully XI", "MUM"), and custom colors. These must persist in local storage (SQLite/Hive).
-- Custom Player Roster: Within each team, users can add players with any custom name. For each player, capture their profile metadata: Role (Batsman, Bowler, All-Rounder, Wicketkeeper), Batting Style (RHB/LHB), and Bowling Style (Fast, Spin, etc.).
-- Quick-Add UI: Include a fast-input feature where a user can paste/type 11 names separated by commas to instantly generate a team roster before a match.
+## What It Is
+Cricket Scorer Pro is a production-grade, mobile-first cricket scoring application for local, amateur, and community cricket teams. It enables any group to define custom teams and players, run professional ball-by-ball match scoring, and generate accurate real player statistics — all persisted locally on-device with zero cloud dependency.
 
-2. Advanced Match Engine & Rules:
-- Multi-Format & Setup: Match setup must allow selecting two pre-saved custom teams, picking the active Playing XI, assigning Captain/Wicketkeeper, defining total overs, and setting the toss result.
-- Ball-by-Ball Accounting: Precise handling of runs (+1, +2, +3, +4, +6) and Extras (Wide, No-Ball, Bye, Leg-Bye, Penalty runs). Wides and No-Balls must add 1 run to the total and NOT count as legal balls.
-- Dynamic Dismissals: Handle all major dismissal types (Bowled, Caught, LBW, Run Out, Stumped, etc.) mapping directly to the specific `batsman_id`, `bowler_id`, and `fielder_id` from the custom rosters.
-- Undo/Redo Engine: Implement an Event Sourcing or Command Pattern allowing the scorer to undo/redo an infinite chain of ball events to fix scoring mistakes.
+## The Core Problem
+Local and amateur cricket teams play serious cricket but have no serious, flexible scoring tool. Existing apps either:
+- Target professional leagues only — rigid, pre-set team databases, no custom rosters
+- Are too lightweight — missing correct extras accounting, no player stats, no undo
+- Force a full restart when the scorer makes a single mistake
 
-3. Relational Database Schema (SQL):
-- Provide a normalized SQL schema linking: Custom_Teams -> Custom_Players -> Matches -> Innings -> Ball_by_Ball_Events.
-- Ensure every stat (runs faced, balls bowled, economy, strike rate) is dynamically computed from individual ball events linked to unique player IDs.
+The result: scorecards are inaccurate, player stats are unreliable, and the scoring experience is frustrating for every team manager, scorer, and captain.
 
-4. State Management Implementation:
-- Write a type-safe State Reducer (TypeScript or Dart/Flutter) that demonstrates how a 'BALL_BOWLED' event or a 'WICKET' event mutates the global match state, seamlessly transitions the striker/non-striker, tracks over progression (6 legal balls), and updates individual custom player statistics.
+## Who Uses It
+- **Primary user — Match Scorer**: The person responsible for ball-by-ball scoring during a live match; needs speed, accuracy, and the ability to correct mistakes instantly without restarting
+- **Secondary user — Team Manager / Captain**: Organizes custom teams and rosters before a match; reviews individual player stats after the game
+
+## Core Capabilities
+
+### 1. Custom Teams & Players (CRUD)
+- Create and persist teams with: Team Name, Short Name (e.g., "Gully XI", "MUM"), and custom brand colors
+- Add players with full profiles: custom name, Role (Batsman / Bowler / All-Rounder / Wicketkeeper), Batting Style (RHB / LHB), Bowling Style (Fast / Medium-Fast / Medium / Off-Spin / Leg-Spin / Slow Left-Arm)
+- **Quick-Add**: paste or type 11 comma-separated names to instantly generate a full playing XI roster before a match
+- All team and player data persists locally via SQLite (sqflite package) or Hive
+
+### 2. Advanced Match Engine
+- **Match Setup**: Select two saved custom teams → pick Playing XI from roster → assign Captain and Wicketkeeper → define total overs → record toss result
+- **Ball-by-Ball Accounting**: Runs (+1, +2, +3, +4, +6) and all Extras — Wide (+1 run, does NOT consume a legal ball), No-Ball (+1 run, does NOT consume a legal ball), Bye, Leg-Bye, Penalty
+- **Dynamic Dismissals**: Bowled, Caught, LBW, Run Out, Stumped, Hit Wicket, Retired Hurt — each mapped to `batsman_id`, `bowler_id` (where applicable), and `fielder_id` from the custom roster
+- **Undo / Redo Engine**: Event-sourcing / Command Pattern — infinite undo/redo chain over all ball events; corrects any mistake at any point without restarting the match
+
+### 3. Relational Database Schema (SQL)
+Normalized schema: `Custom_Teams → Custom_Players → Matches → Innings → Ball_By_Ball_Events`
+Every batting and bowling statistic (runs scored, balls faced, strike rate, wickets taken, economy rate) is derived dynamically from individual ball events linked to unique player IDs — never stored as denormalized totals.
+
+### 4. Type-Safe State Management
+State reducer (Dart / TypeScript) handling `BALL_BOWLED` and `WICKET` action types:
+- Correct striker / non-striker rotation after each ball
+- Over progression: 6 legal balls = over complete → requires new bowler selection
+- Live per-player stat accumulation directly from the event stream
+
+## Technology Stack
+- **App**: Flutter (Dart) — mobile-first (iOS & Android)
+- **Local Persistence**: SQLite via `sqflite` package, or Hive for object-level storage
+- **State Management**: Riverpod or Bloc (type-safe reducer pattern)
+- **Architecture**: Event Sourcing / Command Pattern for the match engine
+
+## Strategic Principles
+- **Event-driven truth**: every stat derives from ball events — no denormalization, no drift between display and reality
+- **Local-first**: all data lives on-device; no cloud dependency for core scoring
+- **Undo is first-class**: the command pattern is the core architecture, not a feature bolted on
+- **Player identity is central**: every dismissal, every ball, every stat ties back to a named custom player with a unique ID
+
+## Positioning
+The professional-grade ball-by-ball cricket scorer for local and community cricket — bridging the gap between informal gully scoring on paper and the precision of broadcast-quality scorecards.
+
+## Brand & Tone
+- Precise, community-focused, trustworthy
+- Primary color: cricket green (deep, ~#166534)
+- Accent color: amber/cricket ball (~#f59e0b)
+- Primary audience feel: the serious gully cricket organizer who wants pro-quality records for their own teams
+
+## Weekly Verified Operation
+**Match Scored** — a complete cricket match tracked ball-by-ball from toss to final result, submitted by a real scorer in the deployed app.
+*Volume and frequency facts not yet provided by the user — see North Star slide for the formula template with labeled assumptions.*
