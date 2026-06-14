@@ -1,8 +1,7 @@
-# Cricket Scorer Pro — Product Overview
-*(Working name — pending user confirmation)*
+# Scorenow — Product Overview
 
 ## What It Is
-Cricket Scorer Pro is a production-grade, mobile-first cricket scoring application for local, amateur, and community cricket teams. It enables any group to define custom teams and players, run professional ball-by-ball match scoring, and generate accurate real player statistics — all persisted locally on-device with zero cloud dependency.
+Scorenow is a production-grade, mobile-first cricket scoring application for local, amateur, and community cricket teams. It enables any group to define custom teams and players, run professional ball-by-ball match scoring, and generate accurate real player statistics — all persisted locally on-device with zero cloud dependency.
 
 ## The Core Problem
 Local and amateur cricket teams play serious cricket but have no serious, flexible scoring tool. Existing apps either:
