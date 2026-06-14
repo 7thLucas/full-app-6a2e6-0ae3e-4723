@@ -1,43 +1,64 @@
 <style>
-  .mode-landscape .sl-features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-  .mode-portrait .sl-features-grid { display: flex; flex-direction: column; gap: 1rem; }
+  .mode-landscape .sl-metrics { grid-template-columns: repeat(4, 1fr); }
+  .mode-portrait  .sl-metrics { grid-template-columns: repeat(2, 1fr); }
 </style>
-<section class="w-full h-full overflow-auto bg-white p-10">
-  <div class="flex items-center justify-between mb-2">
-    <p class="text-xs font-semibold tracking-widest uppercase" style="color:#1e40af;">Core Capabilities</p>
-    <div class="flex items-center gap-1.5 px-2.5 py-1 border rounded-full" style="background-color:#1e40af; border-color:#1e40af30;">
-      <span class="text-xs font-semibold" style="color:#ffffff;">Enabled</span>
+<section class="w-full h-full overflow-auto bg-white">
+  <div style="display:flex;flex-direction:column;height:100%;padding:2.5rem 3rem;">
+
+    <!-- Header -->
+    <div style="flex-shrink:0;margin-bottom:1.25rem;">
+      <span style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#166534;">Benefits</span>
+      <h2 style="font-size:1.65rem;font-weight:900;color:#0f172a;margin:0.2rem 0 0;line-height:1.2;">Real Value, Every Match</h2>
     </div>
-  </div>
-  <h1 class="text-3xl font-bold text-slate-900 mb-4 leading-tight">Effortless Product Experience</h1>
-  <p class="text-slate-600 text-lg mb-8 max-w-2xl">Intuitive features designed for seamless adoption and long-term value delivery.</p>
-  <div class="sl-features-grid">
-    <div class="bg-gradient-to-br from-slate-50 to-white border border-slate-200 rounded-xl p-5 shadow-sm">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0">
-               <span class="text-xl">✨</span>
-            </div>
-            <h3 class="font-bold text-slate-900 text-base">Create Custom Teams &amp; Rosters</h3>
-          </div>
-          <p class="text-slate-600 text-sm leading-relaxed">Build teams with custom names, colors, and player roles. Use quick-add to paste 11 comma-separated names in seconds, or individually configure each player&#x27;s batting/bowling style.</p>
+
+    <!-- Metric cards -->
+    <div class="sl-metrics" style="display:grid;gap:0.875rem;flex-shrink:0;">
+
+      <div style="background:#0f172a;border-radius:0.875rem;padding:1.25rem;display:flex;flex-direction:column;justify-content:space-between;gap:0.6rem;">
+        <span style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#94a3b8;">Accuracy</span>
+        <div style="font-size:2.1rem;font-weight:900;color:white;line-height:1;">100%</div>
+        <span style="font-size:0.72rem;color:#94a3b8;line-height:1.45;">Stats computed from ball events — never manually totalled, never incorrect</span>
+      </div>
+
+      <div style="background:#166534;border-radius:0.875rem;padding:1.25rem;display:flex;flex-direction:column;justify-content:space-between;gap:0.6rem;">
+        <span style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.6);">Time Saved</span>
+        <div style="font-size:2.1rem;font-weight:900;color:white;line-height:1;">~15 min</div>
+        <span style="font-size:0.72rem;color:rgba(255,255,255,0.65);line-height:1.45;">Per match vs manual tally sheets or post-match data re-entry</span>
+      </div>
+
+      <div style="background:#f59e0b;border-radius:0.875rem;padding:1.25rem;display:flex;flex-direction:column;justify-content:space-between;gap:0.6rem;">
+        <span style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:rgba(120,53,15,0.85);">Team Identity</span>
+        <div style="font-size:2.1rem;font-weight:900;color:white;line-height:1;">Unlimited</div>
+        <span style="font-size:0.72rem;color:rgba(120,53,15,0.8);line-height:1.45;">Any name, short code, and color — your brand, your roster, your game</span>
+      </div>
+
+      <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:0.875rem;padding:1.25rem;display:flex;flex-direction:column;justify-content:space-between;gap:0.6rem;">
+        <span style="font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#64748b;">Error Recovery</span>
+        <div style="font-size:2.1rem;font-weight:900;color:#0f172a;line-height:1;">0 restarts</div>
+        <span style="font-size:0.72rem;color:#64748b;line-height:1.45;">Undo any ball event without losing the full match history or player records</span>
+      </div>
+
+    </div>
+
+    <!-- ROI summary block -->
+    <div style="flex:1;margin-top:0.875rem;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:0.875rem;padding:1.25rem 1.5rem;display:flex;align-items:center;gap:2rem;min-height:0;">
+      <div style="flex:1;">
+        <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#166534;margin-bottom:0.5rem;">Why It Matters</div>
+        <p style="font-size:0.82rem;color:#374151;line-height:1.6;margin:0;">
+          Amateur cricket runs on passion — but passion deserves accurate records. Cricket Scorer Pro turns a chaotic notepad into a complete, auditable match archive, giving every player a career scorecard from day one.
+        </p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0.5rem;flex-shrink:0;">
+        <div style="background:#166534;border-radius:0.5rem;padding:0.5rem 1.125rem;text-align:center;">
+          <div style="color:rgba(255,255,255,0.6);font-size:0.62rem;text-transform:uppercase;letter-spacing:0.07em;">Platform</div>
+          <div style="color:white;font-size:0.8rem;font-weight:700;">Flutter · iOS &amp; Android</div>
         </div>
-        <div class="bg-gradient-to-br from-slate-50 to-white border border-slate-200 rounded-xl p-5 shadow-sm">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0">
-               <span class="text-xl">✨</span>
-            </div>
-            <h3 class="font-bold text-slate-900 text-base">Ball-by-Ball Match Engine</h3>
-          </div>
-          <p class="text-slate-600 text-sm leading-relaxed">Start a match with toss, select playing XI, assign captain/wicketkeeper, and begin scoring. Track every run, wide, no-ball, and dismissal with automatic player attribution and over progression.</p>
+        <div style="background:white;border:1px solid #bbf7d0;border-radius:0.5rem;padding:0.5rem 1.125rem;text-align:center;">
+          <div style="color:#64748b;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.07em;">Storage</div>
+          <div style="color:#166534;font-size:0.8rem;font-weight:700;">SQLite / Hive · Local-First</div>
         </div>
-        <div class="bg-gradient-to-br from-slate-50 to-white border border-slate-200 rounded-xl p-5 shadow-sm">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center flex-shrink-0">
-               <span class="text-xl">✨</span>
-            </div>
-            <h3 class="font-bold text-slate-900 text-base">Unlimited Undo/Redo &amp; Analytics</h3>
-          </div>
-          <p class="text-slate-600 text-sm leading-relaxed">Fix any scoring mistake instantly with Event Sourcing. View live player stats (strike rate, economy, dismissals) aggregated from every ball event and persist all data locally.</p>
-        </div>
+      </div>
+    </div>
+
   </div>
 </section>
