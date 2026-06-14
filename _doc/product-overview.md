@@ -13,8 +13,10 @@ Local and amateur cricket teams play serious cricket but have no serious, flexib
 The result: scorecards are inaccurate, player stats are unreliable, and the scoring experience is frustrating for every team manager, scorer, and captain.
 
 ## Who Uses It
-- **Primary user — Match Scorer**: The person responsible for ball-by-ball scoring during a live match; needs speed, accuracy, and the ability to correct mistakes instantly without restarting
-- **Secondary user — Team Manager / Captain**: Organizes custom teams and rosters before a match; reviews individual player stats after the game
+This is a personal passion project — built from the heart, for the builder's own local cricket group. The people who use it are friends who play pickup cricket together, not a commercial audience.
+
+- **Primary user — the builder / scorer**: One of the players in the group who runs the matches and keeps score; needs to spin up fresh teams quickly each match day and capture every ball accurately
+- **Secondary user — fellow players in the group**: Benefit from seeing their own stats and an accurate scorecard after the game; no specialist knowledge assumed
 
 ## Core Capabilities
 
