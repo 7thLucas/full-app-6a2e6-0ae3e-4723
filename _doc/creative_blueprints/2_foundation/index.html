@@ -1,40 +1,93 @@
 <style>
-  .mode-landscape .sl-foundation-layout { display: flex; flex-direction: row; align-items: stretch; min-height: 100%; }
-  .mode-landscape .sl-content-panel { width: 55%; padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
-  .mode-landscape .sl-visual-panel { width: 45%; min-height: 0; }
-  .mode-portrait .sl-foundation-layout { display: flex; flex-direction: column; min-height: 100%; }
-  .mode-portrait .sl-content-panel { padding: 2rem 1.5rem; }
-  .mode-portrait .sl-visual-panel { min-height: 280px; }
+  .mode-landscape .sl-body { flex-direction: row; gap: 1.25rem; }
+  .mode-portrait  .sl-body { flex-direction: column; gap: 1rem; }
 </style>
 <section class="w-full h-full overflow-auto bg-white">
-  <div class="sl-foundation-layout">
-    <div class="sl-content-panel">
-      <div class="flex items-center justify-between mb-4">
-        <span class="inline-block text-xs font-semibold tracking-widest uppercase" style="color:#1e40af;">Foundation</span>
-        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 border rounded-full" style="background-color:#1e40af; border-color:#1e40af30;">
-          <span class="text-xs font-semibold" style="color:#ffffff;">Validated</span>
+  <div style="display:flex;flex-direction:column;height:100%;padding:2.5rem 3rem;">
 
-        </span>
-      </div>
-      <h1 class="text-3xl font-bold text-slate-900 leading-tight mb-8">Manual cricket scoring is error-prone, lacks custom team support, and provides no real-time player statistics or undo capabilities.</h1>
-      <div class="space-y-5">
-        <div class="border-l-4 pl-4 relative" style="border-color:#F43F5E;">
-          <h2 class="text-sm font-semibold uppercase tracking-wide mb-1" style="color:#E11D48;">The Problem</h2>
-          <p class="text-slate-700 leading-relaxed text-sm">Manual cricket scoring suffers from human error, lacks custom team support, offers no detailed player statistics, and provides no recovery mechanism for mistakes. Teams cannot track individual player performance, and match data is fragmented across multiple sources.</p>
-        </div>
-        <div class="border-l-4 pl-4 relative" style="border-color:#1e40af;">
-          <h2 class="text-sm font-semibold uppercase tracking-wide mb-1" style="color:#1e40af;">The Solution</h2>
-          <p class="text-slate-700 leading-relaxed text-sm">Scoring cricket matches manually is slow, inaccurate, and frustrating. Traditional apps lack support for custom teams and players, offer no ball-by-ball precision, and force users to restart if they make a mistake. Teams need a modern solution that handles complex dismissals, tracks every player&#x27;s stats in real time, and scales to professional match requirements.</p>
-        </div>
-        <div class="border-l-4 border-sky-500 pl-4 relative"><h2 class="text-sm font-semibold text-sky-600 uppercase tracking-wide mb-1">Target Audience</h2><p class="text-slate-700 leading-relaxed text-sm">Cricket scorers, team captains, match organizers, and digital cricket enthusiasts managing custom teams and professional-grade matches</p></div>
-        <div class="border-l-4 border-amber-500 pl-4 relative"><h2 class="text-sm font-semibold text-amber-600 uppercase tracking-wide mb-1">Personal Motivation</h2><p class="text-slate-700 leading-relaxed text-sm">Transform cricket scoring from manual error-prone work into a modern, scalable digital system that captures every nuance of the game and empowers teams with actionable player statistics.</p></div>
-      </div>
-      <div class="mt-6 flex flex-wrap gap-2"><span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded-full">Custom Teams</span><span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded-full">Ball-by-Ball Scoring</span><span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded-full">Player Statistics</span><span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded-full">Undo/Redo</span><span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded-full">Event Sourcing</span><span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded-full">SQLite Database</span><span class="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded-full">Real-Time Tracking</span></div>
-      <div class="mt-8"><data-attribution /></div>
+    <!-- Header -->
+    <div style="flex-shrink:0;margin-bottom:1.25rem;">
+      <span style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#166534;">Foundation</span>
+      <h2 style="font-size:1.65rem;font-weight:900;color:#0f172a;margin:0.2rem 0 0;line-height:1.2;">Why Cricket Scorer Pro Exists</h2>
     </div>
-    <div class="sl-visual-panel relative">
-      <img src="http://localhost:8001/common/image-generation?prompt=frustrated+cricket+scorer+with+paper+and+pen+struggling+to+track+match+data&amp;keyspace=3jdsx7br&amp;user_id=4723" alt="visual" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-gradient-to-r from-white via-transparent to-transparent opacity-40"></div>
+
+    <!-- Problem / Solution columns -->
+    <div class="sl-body" style="display:flex;flex:1;min-height:0;">
+
+      <!-- Problem -->
+      <div style="flex:1;background:#fef2f2;border:1px solid #fecaca;border-radius:1rem;padding:1.5rem;display:flex;flex-direction:column;gap:0.8rem;">
+        <div style="display:flex;align-items:center;gap:0.6rem;">
+          <div style="width:1.75rem;height:1.75rem;border-radius:50%;background:#fee2e2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-size:0.75rem;font-weight:700;color:#dc2626;">!</span>
+          </div>
+          <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#dc2626;">The Problem</span>
+        </div>
+        <p style="font-size:0.8rem;color:#475569;line-height:1.55;margin:0;">Local teams play serious cricket with no serious tool. Existing scorers:</p>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.65rem;">
+          <li style="display:flex;align-items:flex-start;gap:0.6rem;">
+            <div style="width:1.1rem;height:1.1rem;border-radius:50%;background:#fecaca;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.1rem;">
+              <span style="font-size:0.55rem;color:#dc2626;">✕</span>
+            </div>
+            <span style="font-size:0.8rem;color:#374151;line-height:1.45;"><strong>No custom rosters</strong> — pre-set team databases only; "Gully XI" doesn't exist</span>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.6rem;">
+            <div style="width:1.1rem;height:1.1rem;border-radius:50%;background:#fecaca;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.1rem;">
+              <span style="font-size:0.55rem;color:#dc2626;">✕</span>
+            </div>
+            <span style="font-size:0.8rem;color:#374151;line-height:1.45;">Wides &amp; no-balls <strong>wrongly consume legal-ball counts</strong></span>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.6rem;">
+            <div style="width:1.1rem;height:1.1rem;border-radius:50%;background:#fecaca;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.1rem;">
+              <span style="font-size:0.55rem;color:#dc2626;">✕</span>
+            </div>
+            <span style="font-size:0.8rem;color:#374151;line-height:1.45;"><strong>No undo</strong> — one typo forces a full match restart</span>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.6rem;">
+            <div style="width:1.1rem;height:1.1rem;border-radius:50%;background:#fecaca;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.1rem;">
+              <span style="font-size:0.55rem;color:#dc2626;">✕</span>
+            </div>
+            <span style="font-size:0.8rem;color:#374151;line-height:1.45;">Stats are <strong>manually totalled</strong> — strike rate &amp; economy are always wrong</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Solution -->
+      <div style="flex:1;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:1rem;padding:1.5rem;display:flex;flex-direction:column;gap:0.8rem;">
+        <div style="display:flex;align-items:center;gap:0.6rem;">
+          <div style="width:1.75rem;height:1.75rem;border-radius:50%;background:#166534;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span style="font-size:0.75rem;font-weight:700;color:white;">✓</span>
+          </div>
+          <span style="font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#166534;">The Solution</span>
+        </div>
+        <p style="font-size:0.8rem;color:#475569;line-height:1.55;margin:0;">Cricket Scorer Pro is built around <strong>your</strong> teams and <strong>your</strong> players — fully local, fully precise.</p>
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.65rem;">
+          <li style="display:flex;align-items:flex-start;gap:0.6rem;">
+            <div style="width:1.1rem;height:1.1rem;border-radius:50%;background:#166534;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.1rem;">
+              <span style="font-size:0.55rem;color:white;">✓</span>
+            </div>
+            <span style="font-size:0.8rem;color:#374151;line-height:1.45;"><strong>Any team, any name, any color</strong> — custom rosters saved to device forever</span>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.6rem;">
+            <div style="width:1.1rem;height:1.1rem;border-radius:50%;background:#166534;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.1rem;">
+              <span style="font-size:0.55rem;color:white;">✓</span>
+            </div>
+            <span style="font-size:0.8rem;color:#374151;line-height:1.45;">Correct extras — <strong>wides &amp; no-balls never burn a legal ball</strong></span>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.6rem;">
+            <div style="width:1.1rem;height:1.1rem;border-radius:50%;background:#166534;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.1rem;">
+              <span style="font-size:0.55rem;color:white;">✓</span>
+            </div>
+            <span style="font-size:0.8rem;color:#374151;line-height:1.45;"><strong>Infinite undo/redo</strong> — fix any ball, any time, without restarting</span>
+          </li>
+          <li style="display:flex;align-items:flex-start;gap:0.6rem;">
+            <div style="width:1.1rem;height:1.1rem;border-radius:50%;background:#166534;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.1rem;">
+              <span style="font-size:0.55rem;color:white;">✓</span>
+            </div>
+            <span style="font-size:0.8rem;color:#374151;line-height:1.45;"><strong>Every stat derived from ball events</strong> — strike rate &amp; economy always accurate</span>
+          </li>
+        </ul>
+      </div>
+
     </div>
   </div>
 </section>
