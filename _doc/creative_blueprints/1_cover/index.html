@@ -1,39 +1,99 @@
 <style>
-  .mode-landscape .sl-cover-layout { display: flex; flex-direction: row; align-items: stretch; min-height: 100%; }
-  .mode-landscape .sl-content-panel { width: 55%; display: flex; flex-direction: column; justify-content: center; }
-  .mode-landscape .sl-image-panel { width: 45%; min-height: 0; }
-  .mode-portrait .sl-cover-layout { display: flex; flex-direction: column; min-height: 100%; }
-  .mode-portrait .sl-content-panel { flex: 1; display: flex; flex-direction: column; justify-content: center; padding-bottom: 1.5rem; }
-  .mode-portrait .sl-image-panel { min-height: 280px; flex-shrink: 0; }
+  .mode-landscape .sl-cover { display: flex; flex-direction: row; height: 100%; }
+  .mode-landscape .sl-left  { width: 55%; display: flex; flex-direction: column; justify-content: space-between; padding: 3rem 3rem 2.75rem; }
+  .mode-landscape .sl-right { width: 45%; }
+  .mode-portrait  .sl-cover { display: flex; flex-direction: column; height: 100%; }
+  .mode-portrait  .sl-left  { flex: 1; display: flex; flex-direction: column; justify-content: space-between; padding: 2rem; }
+  .mode-portrait  .sl-right { min-height: 240px; flex-shrink: 0; }
 </style>
 <section class="w-full h-full overflow-auto bg-white">
-  <div class="sl-cover-layout h-full">
-    <div class="sl-content-panel px-10 py-12">
-      <div class="flex flex-col justify-between h-full">
-        <div>
-          <p class="text-sm font-medium tracking-widest uppercase mb-6" style="color:#1e40af;">Principal Software Architect</p>
-          <h1 class="text-5xl font-bold text-slate-900 leading-tight mb-6">Advanced Cricket Scoreboard App</h1>
-          <p class="text-xl text-slate-600 leading-relaxed max-w-md mb-6">Production-grade ball-by-ball scoring with custom team &amp; player creation, real-time player stats, and unlimited undo/redo—built for precision and scale.</p>
-          <div class="inline-flex items-center gap-3 border rounded-lg px-4 py-3" style="background-color:#0369a1; border-color:#1e40af40;">
-            <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0" style="background-color:#1e40af;">
-              <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-              </svg>
-            </div>
-            <span class="text-sm font-medium px-1" style="color:#ffffff;">Core vision: Simplified productivity</span>
+  <div class="sl-cover">
 
+    <!-- ── Left: content ── -->
+    <div class="sl-left">
+      <div>
+        <span style="display:inline-flex;align-items:center;gap:0.375rem;padding:0.3rem 0.875rem;border-radius:9999px;font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:#dcfce7;color:#166534;">
+          Cricket Scorer Pro
+        </span>
+      </div>
+
+      <div>
+        <p style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#166534;margin:0 0 0.75rem;">Advanced Scoreboard</p>
+        <h1 style="font-size:2.8rem;font-weight:900;line-height:1.1;color:#0f172a;margin:0;">Pro-Grade Scoring.<br/>Every Pitch.</h1>
+        <p style="margin:1.1rem 0 0;font-size:0.9rem;color:#64748b;line-height:1.6;max-width:26rem;">
+          Custom teams, ball-by-ball precision, live player stats,
+          and infinite undo/redo — built for the cricket you actually play.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:1.25rem;">
+          <span style="padding:0.25rem 0.75rem;background:#f1f5f9;color:#475569;border-radius:9999px;font-size:0.72rem;font-weight:500;">Custom Teams</span>
+          <span style="padding:0.25rem 0.75rem;background:#f1f5f9;color:#475569;border-radius:9999px;font-size:0.72rem;font-weight:500;">Ball-by-Ball</span>
+          <span style="padding:0.25rem 0.75rem;background:#f1f5f9;color:#475569;border-radius:9999px;font-size:0.72rem;font-weight:500;">Live Stats</span>
+          <span style="padding:0.25rem 0.75rem;background:#f1f5f9;color:#475569;border-radius:9999px;font-size:0.72rem;font-weight:500;">Undo / Redo</span>
+        </div>
+      </div>
+
+      <div>
+        <div style="width:2.5rem;height:3px;background:#166534;border-radius:9999px;margin-bottom:1rem;"></div>
+        <data-attribution />
+      </div>
+    </div>
+
+    <!-- ── Right: visual panel ── -->
+    <div class="sl-right" style="position:relative;overflow:hidden;background:#14532d;">
+      <img
+        src="https://api.qb-deck.quantumbyte.ai/common/image-generation?prompt=cricket+stadium+green+pitch+aerial+view+professional+photography+dark+moody+evening"
+        style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.35;"
+        alt="Cricket field" />
+      <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,83,45,0.25) 0%,rgba(20,83,45,0.88) 100%);"></div>
+
+      <!-- Live scorecard overlay -->
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:2rem 2rem 2.25rem;">
+        <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);border-radius:1rem;padding:1.25rem 1.5rem;">
+          <!-- Score header -->
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.875rem;">
+            <div>
+              <div style="color:rgba(255,255,255,0.55);font-size:0.65rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;">Gully XI vs MUM</div>
+              <div style="color:white;font-size:2.1rem;font-weight:900;line-height:1;margin-top:0.2rem;">142 / 3</div>
+              <div style="color:rgba(255,255,255,0.6);font-size:0.78rem;margin-top:0.15rem;">18.4 / 20 overs</div>
+            </div>
+            <span style="background:#22c55e;color:white;font-size:0.62rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:9999px;letter-spacing:0.06em;">LIVE</span>
+          </div>
+          <!-- Batsmen -->
+          <div style="border-top:1px solid rgba(255,255,255,0.15);padding-top:0.75rem;display:flex;flex-direction:column;gap:0.4rem;">
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <div style="display:flex;align-items:center;gap:0.45rem;">
+                <div style="width:6px;height:6px;background:#facc15;border-radius:50%;"></div>
+                <span style="color:white;font-size:0.8rem;font-weight:600;">Rohit *</span>
+              </div>
+              <span style="color:white;font-size:0.8rem;font-weight:600;">68 (42)</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;">
+              <span style="color:rgba(255,255,255,0.55);font-size:0.8rem;">Virat</span>
+              <span style="color:rgba(255,255,255,0.55);font-size:0.8rem;">34 (28)</span>
+            </div>
+          </div>
+          <!-- Stats strip -->
+          <div style="border-top:1px solid rgba(255,255,255,0.15);padding-top:0.75rem;margin-top:0.75rem;display:flex;gap:0.25rem;">
+            <div style="flex:1;text-align:center;">
+              <div style="color:rgba(255,255,255,0.5);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.05em;">SR</div>
+              <div style="color:white;font-size:0.82rem;font-weight:700;">161.9</div>
+            </div>
+            <div style="flex:1;text-align:center;">
+              <div style="color:rgba(255,255,255,0.5);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.05em;">Eco</div>
+              <div style="color:white;font-size:0.82rem;font-weight:700;">7.7</div>
+            </div>
+            <div style="flex:1;text-align:center;">
+              <div style="color:rgba(255,255,255,0.5);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.05em;">4s</div>
+              <div style="color:white;font-size:0.82rem;font-weight:700;">14</div>
+            </div>
+            <div style="flex:1;text-align:center;">
+              <div style="color:rgba(255,255,255,0.5);font-size:0.6rem;text-transform:uppercase;letter-spacing:0.05em;">6s</div>
+              <div style="color:white;font-size:0.82rem;font-weight:700;">6</div>
+            </div>
           </div>
         </div>
-        <div class="mt-auto pt-8">
-          <data-attribution />
-        </div>
       </div>
     </div>
-    <div class="sl-image-panel relative overflow-hidden">
-      <div class="absolute inset-0" style="background:linear-gradient(135deg, #1e40af, #1e40af20);"></div>
-      <div class="absolute inset-0 flex items-center justify-center p-8">
-        <img src="http://localhost:8001/common/image-generation?prompt=professional+cricket+scoreboard+digital+interface+with+player+stats+and+live+scoring&amp;keyspace=3jdsx7br&amp;user_id=4723" alt="cover" class="max-w-full max-h-full object-contain drop-shadow-2xl rounded-2xl" />
-      </div>
-    </div>
+
   </div>
 </section>
